@@ -6,6 +6,7 @@
         <a href="clientes.php">Clientes</a>
         <a href="veiculos.php">Veículos</a>
         <a href="ordens.php">Ordens</a>
+        <a href="ordens_lista.php">Ordens_Lista</a>
         <a href="logout.php">Sair</a>
     </nav>
 </header>
