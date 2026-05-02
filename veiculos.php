@@ -1,59 +1,50 @@
-<?php
-include("config.php");
-?>
+<?php include("config.php"); ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Veículos</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
+<?php include("menu.php"); ?>
+
+<main>
 
 <h2>Cadastro de Veículos</h2>
 
 <form action="salvar_veiculo.php" method="POST">
 
-<label>Cliente</label>
+<div class="form-grid">
+
 <select name="cliente_id" required>
-
-<option value="">Selecione</option>
-
+<option value="">Cliente</option>
 <?php
-$sql = "SELECT id, nome FROM clientes";
-$result = $conn->query($sql);
-
-while($row = $result->fetch_assoc()){
-    echo "<option value='".$row['id']."'>".$row['nome']."</option>";
+$res = $conn->query("SELECT * FROM clientes");
+while($c = $res->fetch_assoc()){
+    echo "<option value='{$c['id']}'>{$c['nome']}</option>";
 }
 ?>
-
 </select>
 
-<div class="form-top">
-
-<select name="cliente_id">
-    <!-- clientes -->
-</select>
-
-<input type="text" name="placa" placeholder="Placa">
-<input type="text" name="marca" placeholder="Marca">
-<input type="text" name="modelo" placeholder="Modelo">
+<input type="text" name="placa" placeholder="Placa" required>
+<input type="text" name="marca" placeholder="Marca" required>
+<input type="text" name="modelo" placeholder="Modelo" required>
 <input type="number" name="ano" placeholder="Ano">
 <input type="text" name="cor" placeholder="Cor">
 
-<button type="submit">Salvar</button>
+<button class="btn">Salvar</button>
 
 </div>
 
 </form>
 
-<hr>
-
 <h2>Veículos cadastrados</h2>
 
-<table border="1">
+<table>
 <tr>
 <th>ID</th>
 <th>Cliente</th>
@@ -63,24 +54,26 @@ while($row = $result->fetch_assoc()){
 </tr>
 
 <?php
-$sql = "SELECT v.*, c.nome AS cliente 
+$sql = "SELECT v.*, c.nome cliente 
         FROM veiculos v
-        JOIN clientes c ON c.id = v.cliente_id";
+        JOIN clientes c ON c.id=v.cliente_id";
 
-$result = $conn->query($sql);
+$res = $conn->query($sql);
 
-while($row = $result->fetch_assoc()){
-    echo "<tr>
-        <td>{$row['id']}</td>
-        <td>{$row['cliente']}</td>
-        <td>{$row['placa']}</td>
-        <td>{$row['modelo']}</td>
-        <td>{$row['ano']}</td>
-    </tr>";
+while($row = $res->fetch_assoc()){
+echo "<tr>
+<td>{$row['id']}</td>
+<td>{$row['cliente']}</td>
+<td>{$row['placa']}</td>
+<td>{$row['modelo']}</td>
+<td>{$row['ano']}</td>
+</tr>";
 }
 ?>
 
 </table>
+
+</main>
 
 </body>
 </html>

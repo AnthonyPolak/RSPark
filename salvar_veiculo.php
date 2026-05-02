@@ -1,30 +1,22 @@
 <?php
 include("config.php");
 
-$cliente_id = $_POST['cliente_id'];
-$placa = strtoupper($_POST['placa']);
-$marca = $_POST['marca'];
-$modelo = $_POST['modelo'];
-$ano = $_POST['ano'];
-$cor = $_POST['cor'];
+$stmt = $conn->prepare("
+INSERT INTO veiculos (cliente_id, placa, marca, modelo, ano, cor)
+VALUES (?, ?, ?, ?, ?, ?)
+");
 
-$sql = "INSERT INTO veiculos
-(cliente_id, marca, modelo, placa, ano, cor)
-VALUES (?, ?, ?, ?, ?, ?)";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("isssis",
-    $cliente_id,
-    $marca,
-    $modelo,
-    $placa,
-    $ano,
-    $cor
+$stmt->bind_param(
+"isssis",
+$_POST['cliente_id'],
+$_POST['placa'],
+$_POST['marca'],
+$_POST['modelo'],
+$_POST['ano'],
+$_POST['cor']
 );
 
-if($stmt->execute()){
-    header("Location: veiculos.php");
-}else{
-    echo "Erro: " . $stmt->error;
-}
+$stmt->execute();
+
+header("Location: veiculos.php");
 ?>

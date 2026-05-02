@@ -11,24 +11,15 @@ if(!isset($_SESSION['usuario'])){
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Dashboard - RS Park</title>
-<link rel="stylesheet" href="css/style.css">
+<title>Dashboard</title>
+<link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
 
-<header>
-    <h2>RS <span>Park</span></h2>
+<?php include("menu.php"); ?>
 
-    <nav>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="clientes.php">Clientes</a>
-        <a href="veiculos.php">Veículos</a>
-        <a href="ordens.php">Ordens</a>
-        <a href="logout.php">Sair</a>
-    </nav>
-</header>
-
-<section class="dashboard">
+<main>
 
 <h1>Painel de Controle</h1>
 
@@ -57,7 +48,7 @@ if(!isset($_SESSION['usuario'])){
 
 </div>
 
-</section>
+</main>
 
 </body>
 </html>

@@ -1,8 +1,9 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
     background:#0a0a0a;
     color:#fff;
     font-family:Arial;
-    margin:0;
 }
 
 /* HEADER */
@@ -14,92 +15,68 @@ header{
     align-items:center;
 }
 
-header span{
-    color:red;
-}
+header span{color:red;}
 
 nav a{
-    color:white;
+    color:#fff;
     margin-left:20px;
     text-decoration:none;
 }
 
-/* DASHBOARD */
-.dashboard{
-    padding:40px;
+nav a:hover{color:red;}
+
+main{padding:30px;}
+
+/* FORM */
+.form-grid{
+    display:grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap:15px;
 }
 
-.cards{
-    display:flex;
-    gap:20px;
-}
-
-.card{
-    background:#111;
-    padding:30px;
-    border-radius:10px;
-    width:200px;
-    border-left:4px solid red;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:scale(1.05);
-}
-
-/* FORM VEÍCULOS */
-.form-top{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:20px;
-}
-
-.form-top input,
-.form-top select{
+.form-grid input,
+.form-grid select{
+    width:100%;
+    height:45px;
     padding:10px;
     background:#111;
     border:1px solid #333;
     color:#fff;
-    border-radius:5px;
-    min-width:120px;
+    border-radius:6px;
 }
 
-.form-top button{
+.form-grid select{
+    appearance:none;
+}
+
+/* BUTTON */
+.btn{
     background:red;
-    border:none;
     color:#fff;
-    padding:10px 20px;
-    border-radius:5px;
+    border:none;
+    border-radius:6px;
     cursor:pointer;
 }
 
-.form-top button:hover{
-    background:#c40000;
-}
-
-/* TABELA */
+/* TABLE */
 table{
     width:100%;
-    border-collapse:collapse;
     margin-top:20px;
+    border-collapse:collapse;
 }
 
-table th{
+th{
     background:#111;
     padding:12px;
-    text-align:left;
     border-bottom:2px solid red;
 }
 
-table td{
+td{
     padding:10px;
     border-bottom:1px solid #333;
 }
 
-table tr:hover{
-    background:#1a1a1a;
-}
+tr:hover{background:#1a1a1a;}
 
 /* SERVIÇOS */
 .servico{
@@ -112,10 +89,64 @@ table tr:hover{
     flex:1;
 }
 
+.servico button{
+    background:red;
+    border:none;
+    color:#fff;
+    padding:5px 10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.servico button:hover{
+    background:#c40000;
+}
+
 /* TOTAL */
 #total{
+    width:200px;
+    padding:10px;
     background:#111;
     border:1px solid red;
     color:#fff;
-    font-weight:bold;
+    border-radius:6px;
+}
+
+.btn-delete{
+    background:#ff0000;
+    padding:6px 10px;
+    color:#fff;
+    text-decoration:none;
+    border-radius:5px;
+    font-size:12px;
+}
+
+.btn-delete:hover{
+    background:#c40000;
+}
+
+/* DASHBOARD */
+.cards{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.card-link{
+    text-decoration:none;
+    color:#fff;
+}
+
+.card{
+    background:#111;
+    padding:30px;
+    width:250px;
+    border-radius:10px;
+    border-left:4px solid red;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    background:#1a1a1a;
 }
