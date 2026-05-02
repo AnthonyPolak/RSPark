@@ -1,0 +1,121 @@
+body{
+    background:#0a0a0a;
+    color:#fff;
+    font-family:Arial;
+    margin:0;
+}
+
+/* HEADER */
+header{
+    background:#111;
+    padding:15px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header span{
+    color:red;
+}
+
+nav a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+}
+
+/* DASHBOARD */
+.dashboard{
+    padding:40px;
+}
+
+.cards{
+    display:flex;
+    gap:20px;
+}
+
+.card{
+    background:#111;
+    padding:30px;
+    border-radius:10px;
+    width:200px;
+    border-left:4px solid red;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+/* FORM VEÍCULOS */
+.form-top{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.form-top input,
+.form-top select{
+    padding:10px;
+    background:#111;
+    border:1px solid #333;
+    color:#fff;
+    border-radius:5px;
+    min-width:120px;
+}
+
+.form-top button{
+    background:red;
+    border:none;
+    color:#fff;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.form-top button:hover{
+    background:#c40000;
+}
+
+/* TABELA */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#111;
+    padding:12px;
+    text-align:left;
+    border-bottom:2px solid red;
+}
+
+table td{
+    padding:10px;
+    border-bottom:1px solid #333;
+}
+
+table tr:hover{
+    background:#1a1a1a;
+}
+
+/* SERVIÇOS */
+.servico{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.servico input{
+    flex:1;
+}
+
+/* TOTAL */
+#total{
+    background:#111;
+    border:1px solid red;
+    color:#fff;
+    font-weight:bold;
+}
