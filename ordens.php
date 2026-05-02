@@ -20,8 +20,7 @@
 
 <div class="form-grid">
 
-<!-- CLIENTE -->
-<select name="cliente_id" id="cliente" required>
+<select name="cliente_id" required>
 <option value="">Cliente</option>
 <?php
 $res = $conn->query("SELECT * FROM clientes");
@@ -31,8 +30,7 @@ while($c = $res->fetch_assoc()){
 ?>
 </select>
 
-<!-- VEÍCULO -->
-<select name="veiculo_id" id="veiculo" required>
+<select name="veiculo_id" required>
 <option value="">Veículo</option>
 <?php
 $res = $conn->query("SELECT * FROM veiculos");
@@ -42,14 +40,12 @@ while($v = $res->fetch_assoc()){
 ?>
 </select>
 
-<!-- DATA -->
 <input type="date" name="data_entrada">
 
-<!-- STATUS -->
 <select name="status">
-    <option>Em andamento</option>
-    <option>Finalizado</option>
-    <option>Entregue</option>
+<option>Em andamento</option>
+<option>Finalizado</option>
+<option>Entregue</option>
 </select>
 
 </div>
@@ -74,21 +70,21 @@ while($v = $res->fetch_assoc()){
 
 </main>
 
-<!-- SCRIPT -->
 <script>
 
 function adicionarServico(){
-    let container = document.getElementById("servicos");
+    const container = document.getElementById("servicos");
 
-    let html = `
-        <div class="servico">
-            <input type="text" name="descricao[]" placeholder="Serviço">
-            <input type="number" step="0.01" name="valor[]" placeholder="Valor" oninput="somarTotal()">
-            <button type="button" onclick="removerServico(this)">❌</button>
-        </div>
+    const div = document.createElement("div");
+    div.classList.add("servico");
+
+    div.innerHTML = `
+        <input type="text" name="descricao[]" placeholder="Serviço">
+        <input type="number" step="0.01" name="valor[]" placeholder="Valor" oninput="somarTotal()">
+        <button type="button" onclick="removerServico(this)">X</button>
     `;
 
-    container.innerHTML += html;
+    container.appendChild(div);
 }
 
 function removerServico(btn){
@@ -97,20 +93,15 @@ function removerServico(btn){
 }
 
 function somarTotal(){
-    let valores = document.getElementsByName("valor[]");
     let total = 0;
-
-    valores.forEach(v => {
-        total += parseFloat(v.value) || 0;
+    document.querySelectorAll("input[name='valor[]']").forEach(input => {
+        total += parseFloat(input.value) || 0;
     });
 
     document.getElementById("total").value = total.toFixed(2);
 }
 
-// já inicia com 1 serviço
-window.onload = function(){
-    adicionarServico();
-}
+window.onload = () => adicionarServico();
 
 </script>
 

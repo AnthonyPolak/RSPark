@@ -25,13 +25,19 @@ nav a{
 
 nav a:hover{color:red;}
 
-main{padding:30px;}
+main{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:30px;
+}
 
 /* FORM */
 .form-grid{
     display:grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap:15px;
+    width:100%;
 }
 
 .form-grid input,
@@ -80,9 +86,11 @@ tr:hover{background:#1a1a1a;}
 
 /* SERVIÇOS */
 .servico{
-    display:flex;
+    display:grid;
+    grid-template-columns: 2fr 1fr 60px;
     gap:10px;
     margin-bottom:10px;
+    width:100%;
 }
 
 .servico input{
@@ -125,11 +133,58 @@ tr:hover{background:#1a1a1a;}
     background:#c40000;
 }
 
-/* DASHBOARD */
+/* CONTAINER CENTRAL */
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* SERVIÇOS CORRIGIDO */
+.servico{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+/* INPUTS */
+.servico input{
+    flex:1;
+    min-width:0;
+    height:40px;
+    padding:10px;
+    background:#111;
+    border:1px solid #333;
+    color:#fff;
+    border-radius:6px;
+}
+
+/* BOTÃO */
+.servico button{
+    width:50px;
+    height:40px;
+    background:red;
+    border:none;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.servico button:hover{
+    background:#c40000;
+}
+
+/* LINKS NÃO FICAREM ROXOS */
+a{
+    color:#fff;
+    text-decoration:none;
+}
+
+/* DASHBOARD CARDS */
 .cards{
     display:flex;
     gap:20px;
     flex-wrap:wrap;
+    margin-top:20px;
 }
 
 .card-link{
@@ -149,4 +204,9 @@ tr:hover{background:#1a1a1a;}
 .card:hover{
     transform:scale(1.05);
     background:#1a1a1a;
+}
+
+main{
+    max-width:none !important;
+    width:100% !important;
 }
